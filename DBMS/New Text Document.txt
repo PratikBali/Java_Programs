@@ -1,0 +1,32 @@
+create database combo;
+use combo;
+
+create table demo
+(    srno int primary key AUTO_INCREMENT,
+    field varchar(20),class varchar(20),
+    roll varchar(20),name varchar(20),
+    age int );
+
+insert into demo(field,class,roll,name,age) values('Arts','FY',1,'Amar',20);
+insert into demo(field,class,roll,name,age) values('Arts','FY',2,'Sujit',23);
+insert into demo(field,class,roll,name,age) values('Arts','FY',3,'Suhas',23);
+insert into demo(field,class,roll,name,age) values('Arts','FY',4,'Sagar',23);
+insert into demo(field,class,roll,name,age) values('Arts','SY',11,'Star',22);
+insert into demo(field,class,roll,name,age) values('Arts','SY',12,'Saurbha',22);
+
+insert into demo(field,class,roll,name,age) values('Commerce','FYBcom',101,'Ram',30);
+insert into demo(field,class,roll,name,age) values('Commerce','SYBcom',102,'Ramesh',20);
+insert into demo(field,class,roll,name,age) values('Commerce','SYBcom',103,'Rakesh',23);
+insert into demo(field,class,roll,name,age) values('Commerce','TYBcom',104,'Rajesh',25);
+insert into demo(field,class,roll,name,age) values('Commerce','TYBcom',105,'Raju',25);
+
+insert into demo(field,class,roll,name,age) values('Science','FYBCS',441,'Rahul',25);
+insert into demo(field,class,roll,name,age) values('Science','FYBCS',442,'Rohit',24);
+insert into demo(field,class,roll,name,age) values('Science','SYBCS',443,'Piyush',20);
+insert into demo(field,class,roll,name,age) values('Science','SYBCS',444,'Darshan',18);
+insert into demo(field,class,roll,name,age) values('Science','SYBCS',445,'Piyush',20);
+insert into demo(field,class,roll,name,age) values('Science','SYBCS',446,'Darshan',18);
+insert into demo(field,class,roll,name,age) values('Science','TYBCS',447,'Umesh',50);
+insert into demo(field,class,roll,name,age) values('Science','TYBCS',448,'Ram',58);
+
+select * from demo;

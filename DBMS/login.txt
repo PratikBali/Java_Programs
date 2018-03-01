@@ -1,0 +1,9 @@
+create table login
+(
+name varchar(10) primary key,
+password varchar(10),question varchar(10),answer varchar(10)
+);
+
+insert into login values('akshay','akky1233','my fav game','cricket');
+insert into login values('shankar','shanku','my fav player','virat');
+insert into login values('pratik','prince','logo','black dimond');

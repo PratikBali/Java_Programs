@@ -1,0 +1,9 @@
+create table mylogin
+(
+	name varchar(20) primary key,
+	password varchar(20),
+	ques varchar(30),
+	ans varchar(20)
+);
+insert into mylogin values('admin','admin123','First Bike','Hyabusa');
+

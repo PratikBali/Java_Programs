@@ -1,0 +1,291 @@
+	=========================================
+		NMAE: SAGAR S BODAGE
+		ROLL No. 54017
+		1. PHP & MYSQL
+	=========================================
+
+
+1)
+MAIN FILE OF HTML
+
+<html>
+<pre>
+<body bgcolor="gold"><font size=6 >
+
+                       <h1>EMPLOYEE DATABASE</h1>
+
+<a href="e1a1.html"> Insert into Employee Table
+</a>
+<a href="e1a11.html"> Insert into Department Table
+</a>
+<a href="e1a111.html"> Salary Statement
+
+</a>
+
+</font>
+</body>
+<pre>
+</html>
+
+---------------------------------------
+
+
+e1a1.html For employee
+<html>
+<pre>
+<body bgcolor="gold"><font size=6 >
+<form method="post" action="e1a1.php">
+
+         
+      <h>           Employee Database  </h>
+    
+ Enter The Employee Information
+ Employee no.<input type="text" name="n" ></br>
+
+ Name<input type="text" name="nm" ></br>
+ Address<input type="text" name="ad" ></br>
+ Phone_no<input type="text" name="p" ></br>
+ Salary<input type="text" name="s" ></br>
+
+<input type="submit">
+
+<font size=5>
+
+ </font>
+
+</form>
+</font>
+</body>
+</html>
+-------------------------------------------------------
+
+e
+1a1.php Employee detailed insertion
+
+<pre>
+<?php
+echo "<body bgcolor=gold>";
+echo "<font size=8 >";
+$no=$_POST["n"];
+$nem=$_POST["nm"];
+$cl=$_POST["ad"];
+$op=$_POST["p"];
+$sl=$_POST["s"];
+
+$db=mysql_connect("192.168.0.254","ty54018","") or die(mysql_error());
+mysql_select_db("testty54018",$db) or die(mysql_error());
+
+mysql_query("INSERT INTO emp VALUES($no,'$nem','$cl',$op,$sl)") or die(mysql_error());
+echo"Values Inserted into table<br>";
+echo"<font size=5>";
+                  echo"
+                      <a href=e1a1.html> BACK </a>";
+
+?>
+</pre>
+
+-----------------------------------------------
+
+                     e1a11.html  Department Information
+<html>
+<pre>
+<body bgcolor="gold"><font size=6 >
+<form method="post" action="e1a11.php">
+
+
+      <h>          Department Table  </h>
+
+ Enter The Department Information
+
+ Department no.:<input type="text" name="n" ></br>
+ Department Name:<input type="text" name="nm" ></br>
+
+ Location:<input type="text" name="ad" ></br>
+ Emp_no:<input type="text" name="s" ></br>
+
+<input type="submit">
+
+<font size=5>
+
+ </font>
+
+</form>
+</font>
+</body>
+
+</html>
+-------------------------------------------
+e1a11.php  Insert department information
+
+<pre>
+<?php
+echo "<body bgcolor=gold>";
+echo "<font size=8 >";
+$no=$_POST["n"];
+$nem=$_POST["nm"];
+$cl=$_POST["ad"];
+$op=$_POST["s"];
+
+
+$db=mysql_connect("192.168.0.254","ty54018","") or die(mysql_error());
+mysql_select_db("testty54018",$db) or die(mysql_error());
+/*echo "<table border=2> <td>Maximum Salary</td> <td>Minimun Salary</td> <td>Sum Salary</td>";*/
+
+mysql_query("INSERT INTO dept VALUES($no,'$nem','$cl',$op)") or die(mysql_error());
+echo"Values Inserted into table<br>";
+echo"<font size=5>";
+                  echo"
+                      <a href=e1a11.html> BACK </a>";
+
+?>
+
+</pre>
+
+-----------------------------------------------------------------------------------------------------------------
+Salary Statement
+
+<html>
+<pre>
+<body bgcolor="gold"><font size=6 >
+<form method="post" action="e1a111.php">
+                       <h1>Salary Statement</h1>
+
+Enter Department name:<input type="text" name="t"></br>
+
+<input type="submit">
+</font>
+</body>
+
+<pre>
+</html>
+--------------------------------------
+Displaay Salary Statement
+
+<?php
+$s=$_POST['t'];
+$db=mysql_connect("192.168.0.254","ty54018","") or die(mysql_error());
+mysql_select_db("testty54018,$db) or die(mysql_error());
+echo "<table border=2> <td>Maximum Salary</td> <td>Minimun Salary</td> <td>Sum Salary</td>";
+ $rs =mysql_query("SELECT max(salary),min(salary),sum(salary) FROM emp,dept WHERE d_name='$s'");// or die(mysql_error());
+
+ while($ro=mysql_fetch_array($rs))
+             {  echo "<tr><td>".$ro['max(salary)']."</td><td>".$ro['min(salary)']."</td><td>".$ro['sum(salary)']."</td></tr>";
+               }
+
+//echo $rs;
+echo"<font size=5>";
+                  echo"
+                      <a href=e1a11.html> BACK </a>";
+
+?>
+
+</pre>
+
+==================================================================================
+=======================================================================
+2)
+            e1a2.html
+<html>
+<pre>
+<body bgcolor="gold"><font size=6 >
+<form method="post" action="e1a2.php">
+                       <h1>Hospital Database</h1>
+                                                                                                                                               
+Enter Hospital name:<input type="text" name="t"></br>
+                                                                                                                                               
+<input type="submit">
+</font>
+</body>
+
+<pre>
+</html>
+ ---------------------------------------------------------------------------------------
+e1a2.php
+
+ <pre>
+<?php
+echo"<font size=7>";
+echo"<h1>Information of Doctors</h1>";
+$s=$_POST['t'];
+$db=mysql_connect("192.168.0.254","ty54018","") or die(mysql_error());
+mysql_select_db("testty54018",$db) or die(mysql_error());
+                                                                                                               
+                                                                                                               
+ $rs =mysql_query("select d_name,city,area from doctor,doc_hosp,hospital where h_name='$s' && doc_hosp.d_no=doctor.d_no && doc_hosp.h_no=hospital.h_no;");// or die(mysql_error());
+echo "<table border=2> <td>Doctor_name</td> <td>City</td> <td>Area</td>";                                                                                                              
+while($ro=mysql_fetch_array($rs))
+             {
+                  echo "<tr><td>".$ro['d_name']."</td><td>".$ro['city']."</td><td>".$ro['area']."</td></tr> ";
+               }
+                                                                                                               
+                                                                                                               
+//echo $rs;
+echo"<font size=6>";
+                  echo"
+                      <a href=e1a2.html> BACK </a>";
+                                                                                                               
+                                                                                                               
+?>
+
+</pre>
+================================================================================
+
+4)
+
+
+<html>
+<pre>
+<body bgcolor="gold"><font size=6 >
+<form method="post" action="e1a4.php">
+                       <h1>Student Database</h1>
+                                                                                                               
+                                                                                                               
+Enter Competition name:<input type="text" name="t"></br>
+                                                                                                               
+                                                                                                               
+<input type="submit">
+</font>
+</body>
+</pre>
+
+</html>
+
+----------------------------------------------------------------
+e1a4.php 
+
+<pre>
+<?php
+echo"<font size=7>";
+echo"<h1>Information of Student</h1>";
+$s=$_POST['t'];
+$db=mysql_connect("192.168.0.254","ty54018","") or die(mysql_error());
+mysql_select_db("testty54018",$db) or die(mysql_error());
+                                                                                                               
+                                                                                                               
+ $rs =mysql_query("select c_name,class from student,competition,stud_comp where comp_name='$s' && stud_comp.s_no=student.s_no && stud_comp.c_no=competition.c_no;
+");// or die(mysql_error());
+//echo "Max Salary=";
+//   echo"<td>Doctor name</td><td>City</td><td>Area</td>";                                                                                                                
+ while($ro=mysql_fetch_array($rs))
+             {
+                  echo $ro['c_name']."-".$ro['class']."<br> ";
+               }
+                                                                                                               
+                                                                                                               
+//echo $rs;
+echo"<font size=6>";
+                  echo"
+                      <a href=e1a4.html> BACK </a>";
+                                                                                                               
+                                                                                                               
+?>
+
+</pre>
+
+===========================================================
+                                                                                                                                                                 
+
+
+
+
+

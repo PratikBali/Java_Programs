@@ -1,0 +1,47 @@
+Steps to run servlet examples
+
+1.
+	Open Browser and Type Following URL
+	http://localhost:8080
+2.
+	Write Your servlet Program in editor and save it as .java extension
+	or find in browser servlet examples 
+	copy source code and paste in editor and save it as .java extension
+3.
+	Open Console set following Path
+	export CLASSPATH=/root/servlet.jar:/root:.
+	or on windows goto path c:/pf/tomcat/comman/lib and copy servlet.jar file
+4.
+	Now check in root servlet.jar file is exist or not
+	if yes goto next step or  goto follwing path and copy that file and paste in root
+	/FileSystem/var/lib/tomcat5/comman/lib
+	or windows paste copied file in c/pf/java/jdk/jre/lib/ext/
+5.
+	Now Compile your .java file in console
+6.
+	Goto saved location and copy .class and .java file of your program
+	paste that file in follwing path
+	/root/lib/tomcat5/Webapps/servlet-example/web-inf/classes
+	or on windows c:/pf/tomcat5/Webapps/servlet-example/web-inf/classes
+7.
+	now goto follwing path
+	/root/lib/tomcat5/Webapps/servlet-example/web-inf
+	or on windows c:/pf/tomcat5/Webapps/servlet-example/web-inf
+	open web.xml file
+	make sure you have another copy of web.xml file
+8.
+	add the registry servlet and servlet mapping tag in web.xml file
+
+	<servlet>
+		<servlet-name>fileName</servlet-name>
+		<servlet-class>fileName</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>fileName</servlet-name>
+		<url-pattern>fileName</url-pattern>
+	</servlet>
+
+	save the file and close it
+10.
+	open Browser and type following url
+	http://localhost:8080/servet-examples/servlet/fileName

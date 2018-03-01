@@ -1,0 +1,19 @@
+	void valid(final JTextField tt)
+	{
+		tt.addKeyListener(new KeyAdapter()
+		{
+			public void keyTyped(KeyEvent e)
+			{
+				if(tt.getText().length()<3 && e.getKeyChar()>='0' && e.getKeyChar()<='9')
+
+				super.keyTyped(e);    // optional
+
+				else
+				{
+					e.consume();		// diascard the event
+					Toolkit tk=Toolkit.getDefaultToolkit();
+					tk.beep();	// raise the sound
+				}
+            }
+		});
+	}

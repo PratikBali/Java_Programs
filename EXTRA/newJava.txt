@@ -1,0 +1,27 @@
+        //for setting the size
+        Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
+        //setSize(screenSize.width, screenSize.height - 30);
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
+        //for setting resizable to false
+        //setResizable(false);
+		
+		
+		Toolkit kit = Toolkit.getDefaultToolkit();
+        Image image = kit.getImage(ClassLoader.getSystemResource("images/Host16.gif"));
+        setIconImage(image);
+		
+		//for creating JDeskTopPane for using JInternalFrame on the desktop
+		private JDesktopPane desktop = new JDesktopPane();
+		//get the graphical user interface components display the desktop
+        Container cp = getContentPane();
+        desktop.setBackground(Color.PINK);
+        cp.add("Center", desktop);
+		
+		
+		JPanel centerPanel = new JPanel(); 
+		centerPanel.setLayout(new BorderLayout());
+        centerPanel.setBorder(BorderFactory.createTitledBorder("Add a new book:"));
+		 centerPanel.add("West", lbl_Panel);
+		 centerPanel.add("East", tf_Panel);
+		 centerPanel.add("South", ButtonPanel);
+		 add("Center", centerPanel);

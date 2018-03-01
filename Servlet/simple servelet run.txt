@@ -1,0 +1,36 @@
+1.
+	Open Browser and Type
+	http://localhost:8080
+2.
+	Find servlet examples
+	Copy source code Paste in editor Make your changes and save it by .java
+3.
+	Open console and set classpath
+	export CLASSPATH=/root/servlet.jar:/root:. 
+	Compile your java file
+4.
+	Now goto saved file location
+	copy .class and .java file of your program
+	paste them in follwing folder path
+	/root/lib/tomcat5/Webapps/servlet-example/web-inf/classes
+5.
+	now open web.xml file in editor which is located in following path
+	/root/lib/tomcat5/Webapps/servlet-example/web-inf
+6.
+	In here add Follwing lines make sure you have to enter yor file name without extension
+	
+	<servlet>
+		<servlet-name>fileName</servlet-name>
+		<servlet-class>fileName</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>fileName</servlet-name>
+		<url-pattern>fileName</url-pattern>
+	</servlet>
+
+*IMP: Here fileNmae is your program file name without extension
+
+	save it and close it
+7.
+	open Browser and type following url
+	http://localhost:8080/servet-examples/servlet/fileName
